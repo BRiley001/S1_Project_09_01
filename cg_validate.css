@@ -13,3 +13,29 @@
 
 
 /* Validation Styles */
+/* the input, select, and textarea fields will have the specified background color when focused on (selected) */
+input:focus,
+select:focus,
+textarea:focus {
+    background-color: rgb(245, 245, 140);
+}
+
+/* Whenever the focused field out of the 6 fields used is both selected and valid, a checkmark image appears, to indicate that the field is correct */
+#fnBox:focus:valid,
+#lnBox:focus:valid,
+#addBox:focus:valid,
+#mailBox:focus:valid,
+#phoneBox:focus:valid,
+#idBox:focus:valid {
+    background: rgb(220, 255, 220) url(cg_valid.png) right/contain no-repeat;
+}
+
+/* Whenever the focused field out of the 6 is not valid, a red X appears, to indicate that the field is not valid. */
+#fnBox:focus:invalid,
+#lnBox:focus:invalid,
+#addBox:focus:invalid,
+#mailBox:focus:invalid,
+#phoneBox:focus:invalid,
+#idBox:focus:invalid {
+    background: rgb(255, 232, 232) url(cg_invalid.png) right/contain no-repeat;
+}

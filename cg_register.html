@@ -54,31 +54,63 @@
     <section>
         <h1>Conference Registration Form</h1>
         <p>Required Item (*)</p>
-        <form action="http://www.example.com/cg/register"></form>
+        <!-- The form element is used with a web form, the action says where it should be used, and the method says whether it is receiving or submitting data -->
+        <form action="http://www.example.com/cg/register" method="POST">
+            <!-- Label elements are used to say what should go in the field, in this case it says the title of the person, the for attribute says what input it goes to -->
+            <label for="title">Title</label>
+            <!-- The input is used allow a field to be entered into, in this case it is a list of possible titles, which is linked by thelist attribute -->
+            <input name="title" type="text" id="titleBox" list="titleList">
+            <!-- A datalist holds options, which the input will allow the user to select -->
+            <datalist id="titleList">
+                <option value="Mr."></option>
+                <option value="Mrs."></option>
+                <option value="Ms."></option>
+                <option value="Prof."></option>
+                <option value="Dr."></option>
+                <option value="Assist."></option>
+                <option value="Prof."></option>
+                <option value="Assoc. Prof"></option>
+            </datalist>
 
-        <label for="title"></label>
-        <input type="text">
+            <!-- Labels say what should go in the input box. They are linked with the for, name, and id attributes. -->
+            <label for="fnBox">First Name*</label>
+            <!-- The input allows data to be entered, the required attribute says that this field needs to be completed -->
+            <input type="text" id="fnBox" required>
 
-        <label for="firstName"></label>
-        <input type="text">
+            <label for="lnBox">Last Name*</label>
+            <input type="text" id="lnBox" required>
 
-        <label for="lastName"></label>
-        <input type="text">
+            <label for="addBox">Address*</label>
+            <input type="text" id="addBox" required>
 
-        <label for="address"></label>
-        <input type="text">
+            <label for="groupBox">Company or University</label>
+            <input type="text" id="groupBox">
 
-        <label for="group"></label>
-        <input type="text">
+            <label for="mailBox">E-mail*</label>
+            <input type="email" id="mailBox" required>
 
-        <label for="email"></label>
-        <input type="text">
+            <label for="phoneBox">Phone Number*</label>
+            <!-- This input has a placeholder, which tells the user what format to put something into the field as. The pattern tells the form to look for something, maybe a format or possible formats, in this case it looks for 3 numbers, 3 numbers, then four numbers -->
+            <input type="tel" id="phoneBox" placeholder="(nnn) nnn-nnnn" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$"
+                required>
 
-        <label for="phoneNumber"></label>
-        <input type="text">
+            <label for="idBox">ACGIP Membership Number</label>
+            <input type="text" id="idBox" placeholder="acgip-nnnnnn" pattern="^acgip\-\d{6}$">
 
-        <label for="acgipID"></label>
-        <input type="text">
+            <label for="regList">Registration Category</label>
+            <!-- A select list creates a list of possible values, which can then be selected, in this case, it is the various pay groups -->
+            <select name="regList" id="regList" value="registerType">
+                <option value="member">ACGIP Member ($695)</option>
+                <option value="nonmember">Non-Member ($795)</option>
+                <option value="student">Student ($310)</option>
+                <option value="poster">Poster ($95)</option>
+                <option value="guest">Guest ($35)</option>
+            </select>
+            <!-- this creates a submit button, which submits data -->
+            <p>
+                <input type="submit" value="continue">
+            </p>
+        </form>
     </section>
 
     <aside>
